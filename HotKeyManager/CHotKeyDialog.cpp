@@ -43,7 +43,6 @@ BOOL CHotKeyDialog::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// Add keys to combobox
-	MapVirtualKey VK_HELP
 	m_cmbKeys.InsertString(0, L"A");
 	return TRUE;
 }
