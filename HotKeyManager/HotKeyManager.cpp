@@ -1,13 +1,16 @@
 ﻿// HotKeyManager.cpp : DLL の初期化ルーチンを定義します。
 //
 
-#include "pch.h"
+
+
 #include "framework.h"
 #include "HotKeyManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
+
+
 
 //
 //TODO: この DLL が MFC DLL に対して動的にリンクされる場合、
@@ -17,7 +20,7 @@
 //
 //		例:
 //
-//		extern "C" BOOL PASCAL EXPORT ExportedFunction()
+//		extern "C" BOOL PASCAL EXPORT DxportedFunction()
 //		{
 //			AFX_MANAGE_STATE(AfxGetStaticModuleState());
 //			// 通常関数の本体はこの位置にあります

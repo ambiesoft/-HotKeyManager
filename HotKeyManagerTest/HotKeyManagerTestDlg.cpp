@@ -4,6 +4,8 @@
 
 #include "pch.h"
 #include "framework.h"
+#include "../../lsMisc/stdosd/stdosd.h"
+
 #include "HotKeyManagerTest.h"
 #include "HotKeyManagerTestDlg.h"
 #include "afxdialogex.h"
@@ -13,6 +15,7 @@
 #define new DEBUG_NEW
 #endif
 
+using namespace Ambiesoft::stdosd;
 
 // アプリケーションのバージョン情報に使われる CAboutDlg ダイアログ
 
@@ -55,6 +58,10 @@ CHotKeyManagerTestDlg::CHotKeyManagerTestDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_HOTKEYMANAGERTEST_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+	m_strHotKeyIniFile = stdCombinePath(
+		stdGetParentDirectory(stdGetModuleFileName()),
+		L"hotkey.ini");
 }
 
 void CHotKeyManagerTestDlg::DoDataExchange(CDataExchange* pDX)
@@ -156,8 +163,24 @@ HCURSOR CHotKeyManagerTestDlg::OnQueryDragIcon()
 }
 
 
-
+LPCWSTR CALLBACK GetNameFromID(LPCWSTR pID)
+{
+	return L"NAME FROM ID";
+}
 void CHotKeyManagerTestDlg::OnBnClickedButtonHotkeyoption()
 {
-	ExportedFunction(this);
+	CHotKeyManagerManipulator c(*this, GetNameFromID);
+	if (!c.LoadDataFromIni(m_strHotKeyIniFile.c_str()))
+	{
+		AfxMessageBox(L"Failed load");
+		return;
+	}
+
+	c.ShowDialog();
+
+	if (c.SaveDataToIni(m_strHotKeyIniFile.c_str()))
+	{
+		AfxMessageBox(L"failed save");
+		return;
+	}
 }

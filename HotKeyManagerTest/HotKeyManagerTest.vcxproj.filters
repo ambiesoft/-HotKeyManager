@@ -36,6 +36,12 @@
     <ClInclude Include="..\HotKeyManager\exported.h">
       <Filter>1 Header</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\lsMisc\stdosd\stdosd.h">
+      <Filter>1 Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lsMisc\stdosd\stdosd_literal.h">
+      <Filter>1 Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HotKeyManagerTest.cpp">
@@ -45,6 +51,12 @@
       <Filter>2 Source</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>2 Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lsMisc\stdosd\stdosd.cpp">
+      <Filter>2 Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lsMisc\stdosd\stdosd_win.cpp">
       <Filter>2 Source</Filter>
     </ClCompile>
   </ItemGroup>

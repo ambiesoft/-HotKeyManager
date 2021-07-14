@@ -8,7 +8,8 @@
 // CHotKeyManagerTestDlg ダイアログ
 class CHotKeyManagerTestDlg : public CDialogEx
 {
-// コンストラクション
+private:
+	std::wstring m_strHotKeyIniFile;
 public:
 	CHotKeyManagerTestDlg(CWnd* pParent = nullptr);	// 標準コンストラクター
 

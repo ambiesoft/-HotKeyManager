@@ -5,11 +5,6 @@
 #define IDD_DIALOG_HOTKEYMANAGER        1000
 #define IDC_LIST_HOTKEYS                1000
 #define IDC_BUTTON_ADD                  1001
-#define IDD_DIALOG_HOTKEY               1002
-#define IDC_COMBO_KEYS                  1002
-#define IDC_CHECK_CTRL                  1003
-#define IDC_CHECK_SHIFT                 1004
-#define IDC_CHECK_ALT                   1005
 
 // Next default values for new objects
 // 

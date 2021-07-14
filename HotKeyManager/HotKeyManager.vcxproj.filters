@@ -18,16 +18,16 @@
     <ClCompile Include="HotKeyManager.cpp">
       <Filter>2 Source</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>2 Source</Filter>
-    </ClCompile>
     <ClCompile Include="CHotKeyManagerDialog.cpp">
       <Filter>2 Source</Filter>
     </ClCompile>
     <ClCompile Include="exported.cpp">
       <Filter>2 Source</Filter>
     </ClCompile>
-    <ClCompile Include="CHotKeyDialog.cpp">
+    <ClCompile Include="..\..\lsMisc\GetHotkeyString.cpp">
+      <Filter>2 Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lsMisc\UTF16toUTF8.cpp">
       <Filter>2 Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -49,16 +49,22 @@
     <ClInclude Include="HotKeyManager.h">
       <Filter>1 Header</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>1 Header</Filter>
-    </ClInclude>
     <ClInclude Include="CHotKeyManagerDialog.h">
       <Filter>1 Header</Filter>
     </ClInclude>
     <ClInclude Include="exported.h">
       <Filter>1 Header</Filter>
     </ClInclude>
-    <ClInclude Include="CHotKeyDialog.h">
+    <ClInclude Include="..\..\HotKeyDialog\HotKeyDialog\HotKeyDialog.h">
+      <Filter>1 Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lsMisc\GetHotkeyString.h">
+      <Filter>1 Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\profile\cpp\Profile\include\ambiesoft.profile.h">
+      <Filter>1 Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lsMisc\UTF16toUTF8.h">
       <Filter>1 Header</Filter>
     </ClInclude>
   </ItemGroup>

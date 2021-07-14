@@ -2,7 +2,7 @@
 //
 
 #pragma once
-
+#include "framework.h"
 #ifndef __AFXWIN_H__
 	#error "PCH に対してこのファイルをインクルードする前に 'pch.h' をインクルードしてください"
 #endif

@@ -33,3 +33,6 @@
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 
+#include <map>
+#include <vector>
+#include <string>
