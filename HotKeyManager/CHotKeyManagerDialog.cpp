@@ -67,7 +67,7 @@ BOOL CHotKeyManagerDialog::LoadFromIni(LPCWSTR pIniFile)
 }
 BOOL CHotKeyManagerDialog::SaveToIni(LPCWSTR pIniFile)
 {
-	KOKOKARA
+	return TRUE;
 }
 BOOL CHotKeyManagerDialog::OnInitDialog()
 {

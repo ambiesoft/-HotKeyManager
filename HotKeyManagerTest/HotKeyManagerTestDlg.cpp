@@ -169,7 +169,7 @@ LPCWSTR CALLBACK GetNameFromID(LPCWSTR pID)
 }
 void CHotKeyManagerTestDlg::OnBnClickedButtonHotkeyoption()
 {
-	CHotKeyManagerManipulator c(*this, GetNameFromID);
+	CHotKeyManagerManipulator c(this, GetNameFromID);
 	if (!c.LoadDataFromIni(m_strHotKeyIniFile.c_str()))
 	{
 		AfxMessageBox(L"Failed load");
@@ -178,7 +178,7 @@ void CHotKeyManagerTestDlg::OnBnClickedButtonHotkeyoption()
 
 	c.ShowDialog();
 
-	if (c.SaveDataToIni(m_strHotKeyIniFile.c_str()))
+	if (!c.SaveDataToIni(m_strHotKeyIniFile.c_str()))
 	{
 		AfxMessageBox(L"failed save");
 		return;

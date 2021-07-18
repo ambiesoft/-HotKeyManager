@@ -16,7 +16,7 @@ class DLLEXPORT CHotKeyManagerManipulator
 	CWnd* m_pParent = nullptr;
 	
 public:
-	CHotKeyManagerManipulator(HWND hParent, FnGetNameFromID fnGetNameFromID);
+	CHotKeyManagerManipulator(CWnd* pParent, FnGetNameFromID fnGetNameFromID);
 	~CHotKeyManagerManipulator();
 	BOOL LoadDataFromIni(LPCWSTR pIniFile);
 	BOOL SaveDataToIni(LPCWSTR pIniFile);
