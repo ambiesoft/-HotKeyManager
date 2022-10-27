@@ -67,7 +67,29 @@ BOOL CHotKeyManagerDialog::LoadFromIni(LPCWSTR pIniFile)
 }
 BOOL CHotKeyManagerDialog::SaveToIni(LPCWSTR pIniFile)
 {
+	// TODO: What is name and id?
+	// The code below is random
+	try
+	{
+		Profile::CHashIni ini(Profile::ReadAll(wstring(pIniFile), true));
+		int count = 0;
+		vector<string> vid;
+		for (int i = 0; i < m_lstKeys.GetItemCount(); ++i)
+		{
+			CString name = m_lstKeys.GetItemText(i, 0);
+			vid.push_back(toStdUtf8String((LPCWSTR)name));
+		}
+		Profile::WriteStringArray(SECTION_HOLDER, KEY_ID, vid, ini);
+
+
+		Profile::WriteAll(ini, wstring(pIniFile));
+	}
+	catch (exception&)
+	{
+		return FALSE;
+	}
 	return TRUE;
+
 }
 BOOL CHotKeyManagerDialog::OnInitDialog()
 {
@@ -76,10 +98,14 @@ BOOL CHotKeyManagerDialog::OnInitDialog()
 	m_lstKeys.SetExtendedStyle(m_lstKeys.GetExtendedStyle() |
 		LVS_EX_FULLROWSELECT);
 
+	m_lstKeys.InsertColumn(0, L"Name", 0, 200);
+	m_lstKeys.InsertColumn(0, L"HotKey", 0, 400);
 	for (auto&& pair : m_idToHK)
 	{
-		m_lstKeys.InsertColumn(m_lstKeys.GetItemCount(),
-			m_fnGetNameFromID(toStdWstringFromUtf8(pair.first).c_str()), 0, 100);
+		int inserted = m_lstKeys.InsertItem(m_lstKeys.GetItemCount(),
+			m_fnGetNameFromID(toStdWstringFromUtf8(pair.first).c_str()));
+
+		m_lstKeys.SetItemText(inserted, 1, GetHotkeyControlStringW(pair.second).c_str());
 	}
 
 	return TRUE;
@@ -92,5 +118,9 @@ void CHotKeyManagerDialog::OnBnClickedButtonAdd()
 	if (!GetHotKeyFromUser(*this, L"TTTTTTTTT", &key))
 		return;
 
-	m_lstKeys.InsertItem(0, GetHotkeyRegisterStringW(key).c_str());
+	wstring name = L"MyName";
+	name += to_wstring(m_lstKeys.GetItemCount());
+	int inserted = m_lstKeys.InsertItem(m_lstKeys.GetItemCount(),
+		name.c_str());
+	m_lstKeys.SetItemText(inserted, 1, GetHotkeyControlStringW(key).c_str());
 }

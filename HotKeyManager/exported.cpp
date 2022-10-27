@@ -8,7 +8,7 @@
 CHotKeyManagerManipulator::CHotKeyManagerManipulator(CWnd* pParent, FnGetNameFromID fnGetNameFromID)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
-	m_pParent = new CWnd;
+	// m_pParent = new CWnd;
 	m_pParent = pParent;
 	m_pDialog = new CHotKeyManagerDialog(m_pParent, fnGetNameFromID);
 }
@@ -16,7 +16,7 @@ CHotKeyManagerManipulator::~CHotKeyManagerManipulator()
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 	delete m_pDialog;
-	delete m_pParent;
+	// delete m_pParent;
 }
 BOOL CHotKeyManagerManipulator::LoadDataFromIni(LPCWSTR pIniFile)
 {
