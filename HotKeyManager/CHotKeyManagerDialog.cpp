@@ -92,5 +92,5 @@ void CHotKeyManagerDialog::OnBnClickedButtonAdd()
 	if (!GetHotKeyFromUser(*this, L"TTTTTTTTT", &key))
 		return;
 
-	m_lstKeys.InsertItem(0, GetHotkeyStringW(key).c_str());
+	m_lstKeys.InsertItem(0, GetHotkeyRegisterStringW(key).c_str());
 }
